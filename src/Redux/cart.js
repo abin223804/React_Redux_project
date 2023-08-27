@@ -12,7 +12,7 @@ const cartSlice=createSlice({
      initialState:INITIAL_STATE,
      reducer:{
         addToCart:(state)=>{
-            state.cartCount=0
+            state.cartCount=1
         },
         increment:(state)=>{
             state.cartCount+=1;
@@ -24,5 +24,5 @@ const cartSlice=createSlice({
      }
 })
 
-export const {icrement,decrement,addToCart}=cartSlice.actions
+export const {increment,decrement,addToCart}=cartSlice.actions
 export default cartSlice.reducer;

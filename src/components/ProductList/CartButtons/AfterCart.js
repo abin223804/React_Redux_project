@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { decrement, icrement } from '../../../Redux/cart'
+import { decrement, increment } from '../../../Redux/cart'
 import './CartButtons.css'
 
 function AfterCart() {
@@ -13,7 +13,7 @@ function AfterCart() {
       }}>-</button>
       <div className='cart-count'>{cartCount}</div>
       <button className='cart-countr-button' onClick={()=>{
-        dispatch(icrement())
+        dispatch(increment())
       }}>+</button>
     </div>
   )
