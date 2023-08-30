@@ -10,8 +10,13 @@ const cartSlice=createSlice({
     name: 'cart',
      initialState:INITIAL_STATE,
      reducers:{
-        addToCart:(state)=>{
-            state.cartCount=1
+        addToCart:(state,action)=>{
+            // state.cartCount=1
+            // console.log(action);
+            state.cartList.push({
+                ...action.payload,
+                count:1
+            });
         },
         increment:(state)=>{
             state.cartCount+=1;

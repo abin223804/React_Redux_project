@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 import "./ProductList.css";
 
 const ProductList = () => {
-  const { cartCount } = useSelector((state) => state.cart);
+  const { cartCount,cartList } = useSelector((state) => state.cart);
+  console.log(cartList);
 
   return (
     <section className="container">
@@ -15,7 +16,7 @@ const ProductList = () => {
           <img src={product?.image} alt="" />
           <h3>{product?.title}</h3>
 
-          {cartCount > 0 ? <AfterCart /> : <BeforeCart />}
+          {cartCount > 0 ? <AfterCart /> : <BeforeCart product={product} />}
         </div>
       ))}
     </section>
