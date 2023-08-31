@@ -11,21 +11,41 @@ const cartSlice=createSlice({
      initialState:INITIAL_STATE,
      reducers:{
         addToCart:(state,action)=>{
-            // state.cartCount=1
-            // console.log(action);
+           
+        const itemExist=state.cartList.find(item=>item.id===action.payload.id)
+        if(itemExist){  state.cartList.forEach((item)=>{
+            if(item?.id===action.payload.id){
+                item.count=1;
+            }
+          });
+          return;}{
             state.cartList.push({
                 ...action.payload,
                 count:1
             });
-        },
-        increment:(state)=>{
-            state.cartCount+=1;
-        },
-        decrement:(state)=>{
-            state.cartCount-=1;
         }
+
+
+        
+        },
+        increment:(state,action)=>{
+          const productID= action.payload
+          state.cartList.forEach((item)=>{
+            item?.id===productID&& item.count++;
+               
+            
+          })
+        },
+        decrement:(state,action)=>{
+            const productID=action.payload
+            state.cartList.forEach((item)=>{
+                item?.id===productID&&item.count--;     
+                    
+                
+        })
        
      }
+    }
 })
 
 export const {increment,decrement,addToCart}=cartSlice.actions;

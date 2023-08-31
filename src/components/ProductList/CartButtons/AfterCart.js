@@ -3,17 +3,17 @@ import { useDispatch,useSelector } from 'react-redux'
 import { decrement, increment } from '../../../Redux/cart'
 import './CartButtons.css'
 
-function AfterCart() {
-  const { cartCount } = useSelector((state) => state.cart);
+function AfterCart({cartCount,productID}) {
+ 
   const dispatch=useDispatch()
   return (
     <div className='after-cart'>
       <button className='cart-countr-button' onClick={()=>{
-        dispatch(decrement());
+        dispatch(decrement(productID));
       }}>-</button>
       <div className='cart-count'>{cartCount}</div>
       <button className='cart-countr-button' onClick={()=>{
-        dispatch(increment())
+        dispatch(increment(productID))
       }}>+</button>
     </div>
   )
